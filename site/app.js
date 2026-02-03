@@ -86,7 +86,7 @@ function formatElevation(meters, units) {
   return `${formatNumber(Math.round(meters * 3.28084), 0)} ft`;
 }
 
-function buildSummary(payload, types, years) {
+function buildSummary(payload, types, years, showTypeBreakdown, showActiveDays) {
   summary.innerHTML = "";
 
   const totals = {
@@ -123,8 +123,10 @@ function buildSummary(payload, types, years) {
     { title: "Total Distance", value: formatDistance(totals.distance, payload.units || { distance: "mi" }) },
     { title: "Total Elevation", value: formatElevation(totals.elevation, payload.units || { elevation: "ft" }) },
     { title: "Total Time", value: formatDuration(totals.moving_time) },
-    { title: "Active Days", value: activeDays.size.toLocaleString() },
   ];
+  if (showActiveDays) {
+    cards.push({ title: "Active Days", value: activeDays.size.toLocaleString() });
+  }
 
   cards.forEach((card) => {
     const el = document.createElement("div");
@@ -140,12 +142,13 @@ function buildSummary(payload, types, years) {
     summary.appendChild(el);
   });
 
-  types.forEach((type) => {
-    const typeCard = document.createElement("div");
-    typeCard.className = "summary-card";
-    const title = document.createElement("div");
-    title.className = "summary-title";
-    title.textContent = `${displayType(type)} Workouts`;
+  if (showTypeBreakdown) {
+    types.forEach((type) => {
+      const typeCard = document.createElement("div");
+      typeCard.className = "summary-card";
+      const title = document.createElement("div");
+      title.className = "summary-title";
+      title.textContent = `${displayType(type)} Workouts`;
     const value = document.createElement("div");
     value.className = "summary-type";
     const dot = document.createElement("span");
@@ -155,10 +158,11 @@ function buildSummary(payload, types, years) {
     text.textContent = (typeTotals[type]?.count || 0).toLocaleString();
     value.appendChild(dot);
     value.appendChild(text);
-    typeCard.appendChild(title);
-    typeCard.appendChild(value);
-    summary.appendChild(typeCard);
-  });
+      typeCard.appendChild(title);
+      typeCard.appendChild(value);
+      summary.appendChild(typeCard);
+    });
+  }
 }
 
 function buildHeatmapArea(aggregates, year, units, colors, type) {
@@ -343,7 +347,9 @@ async function init() {
       heatmaps.appendChild(section);
     });
 
-    buildSummary(payload, types, years);
+    const showTypeBreakdown = selectedType === "all";
+    const showActiveDays = selectedType === "all" && selectedYear === "all";
+    buildSummary(payload, types, years, showTypeBreakdown, showActiveDays);
   }
 
   typeSelect.addEventListener("change", update);

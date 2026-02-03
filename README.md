@@ -5,6 +5,10 @@ Sync Strava activities, normalize and aggregate them, and generate GitHub-style 
 Live site: [Interactive Heatmaps](https://aspain.github.io/git-sweaty/)
 Last updated: <!-- UPDATED:START -->2026-02-03 16:14 UTC<!-- UPDATED:END -->
 
+## Strava App Setup
+
+Create a Strava API application at [Strava API Settings](https://www.strava.com/settings/api). Use `localhost` for the **Authorization Callback Domain**.
+
 ## Quick start (GitHub Actions only)
 
 1. Generate a **refresh token** via OAuth (the token shown on the Strava API page often does **not** work):
