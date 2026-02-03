@@ -172,6 +172,7 @@
         color: var(--muted);
         font-size: 10px;
         line-height: 10px;
+        z-index: 2;
       }
 
       .year-label {
@@ -186,12 +187,14 @@
       }
 
       .day-label {
+        color: #e5e7eb;
         text-align: right;
         width: 30px;
       }
 
       .grid {
         position: relative;
+        z-index: 1;
         display: grid;
         grid-auto-flow: column;
         grid-auto-columns: var(--cell);

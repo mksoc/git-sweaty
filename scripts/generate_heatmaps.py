@@ -25,11 +25,11 @@ PADDING = 16
 LABEL_LEFT = 36
 LABEL_TOP = 20
 
-DEFAULT_COLORS = ["#eef2f6", "#bce9e4", "#76d7cf", "#2bb7a5", "#0b7f6d"]
+DEFAULT_COLORS = ["#eef2f6", "#cfe6e2", "#9fd0c8", "#5fb5a7", "#2f7f6f"]
 TYPE_COLORS = {
-    "Run": ["#eef2f6", "#bfe3ff", "#7ac7ff", "#2f97ff", "#005ae6"],
-    "Ride": ["#eef2f6", "#ffd6a1", "#ffad4d", "#ff7a1a", "#d14b00"],
-    "WeightTraining": ["#eef2f6", "#d8b8ff", "#b17bff", "#8a3ffc", "#5f17d6"],
+    "Run": ["#eef2f6", "#d5e6f7", "#a9c7ea", "#6fa0d8", "#2f6fb4"],
+    "Ride": ["#eef2f6", "#f5d6b2", "#eebc7f", "#e09449", "#b35b14"],
+    "WeightTraining": ["#eef2f6", "#ddd2f5", "#bea7e6", "#9577d1", "#6b44b4"],
 }
 LABEL_COLOR = "#6b7280"
 TEXT_COLOR = "#111827"

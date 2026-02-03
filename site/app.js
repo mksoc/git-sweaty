@@ -3,11 +3,11 @@ const GAP = 2;
 const LABEL_LEFT = 36;
 const LABEL_TOP = 20;
 
-const DEFAULT_COLORS = ["#eef2f6", "#bce9e4", "#76d7cf", "#2bb7a5", "#0b7f6d"];
+const DEFAULT_COLORS = ["#eef2f6", "#cfe6e2", "#9fd0c8", "#5fb5a7", "#2f7f6f"];
 const TYPE_COLORS = {
-  Run: ["#eef2f6", "#bfe3ff", "#7ac7ff", "#2f97ff", "#005ae6"],
-  Ride: ["#eef2f6", "#ffd6a1", "#ffad4d", "#ff7a1a", "#d14b00"],
-  WeightTraining: ["#eef2f6", "#d8b8ff", "#b17bff", "#8a3ffc", "#5f17d6"],
+  Run: ["#eef2f6", "#d5e6f7", "#a9c7ea", "#6fa0d8", "#2f6fb4"],
+  Ride: ["#eef2f6", "#f5d6b2", "#eebc7f", "#e09449", "#b35b14"],
+  WeightTraining: ["#eef2f6", "#ddd2f5", "#bea7e6", "#9577d1", "#6b44b4"],
 };
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -56,11 +56,18 @@ function displayType(type) {
   return type;
 }
 
+function formatNumber(value, fractionDigits) {
+  return new Intl.NumberFormat(undefined, {
+    minimumFractionDigits: fractionDigits,
+    maximumFractionDigits: fractionDigits,
+  }).format(value);
+}
+
 function formatDistance(meters, units) {
   if (units.distance === "km") {
-    return `${(meters / 1000).toFixed(1)} km`;
+    return `${formatNumber(meters / 1000, 1)} km`;
   }
-  return `${(meters / 1609.344).toFixed(1)} mi`;
+  return `${formatNumber(meters / 1609.344, 1)} mi`;
 }
 
 function formatDuration(seconds) {
@@ -73,9 +80,9 @@ function formatDuration(seconds) {
 
 function formatElevation(meters, units) {
   if (units.elevation === "m") {
-    return `${Math.round(meters)} m`;
+    return `${formatNumber(Math.round(meters), 0)} m`;
   }
-  return `${Math.round(meters * 3.28084)} ft`;
+  return `${formatNumber(Math.round(meters * 3.28084), 0)} ft`;
 }
 
 function buildSummary(payload) {
