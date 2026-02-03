@@ -53,27 +53,51 @@ def _normalize_activity(activity: Dict, type_aliases: Dict[str, str]) -> Dict:
     }
 
 
+def _load_existing() -> Dict[str, Dict]:
+    if not os.path.exists(OUT_PATH):
+        return {}
+    try:
+        existing_items = read_json(OUT_PATH)
+    except Exception:
+        return {}
+    existing: Dict[str, Dict] = {}
+    for item in existing_items or []:
+        if not isinstance(item, dict):
+            continue
+        activity_id = item.get("id")
+        if activity_id is None:
+            continue
+        existing[str(activity_id)] = item
+    return existing
+
+
 def normalize() -> List[Dict]:
     config = load_config()
     type_aliases = config.get("activities", {}).get("type_aliases", {}) or {}
     allowed_types = set(config.get("activities", {}).get("types", []) or [])
 
-    items: List[Dict] = []
-    if not os.path.exists(RAW_DIR):
-        return items
+    existing = _load_existing()
 
-    for filename in sorted(os.listdir(RAW_DIR)):
-        if not filename.endswith(".json"):
-            continue
-        path = os.path.join(RAW_DIR, filename)
-        activity = read_json(path)
-        normalized = _normalize_activity(activity, type_aliases)
-        if not normalized:
-            continue
-        if allowed_types and normalized["type"] not in allowed_types:
-            continue
-        items.append(normalized)
+    if os.path.exists(RAW_DIR):
+        for filename in sorted(os.listdir(RAW_DIR)):
+            if not filename.endswith(".json"):
+                continue
+            path = os.path.join(RAW_DIR, filename)
+            activity = read_json(path)
+            normalized = _normalize_activity(activity, type_aliases)
+            if not normalized:
+                continue
+            if allowed_types and normalized["type"] not in allowed_types:
+                continue
+            existing[str(normalized["id"])] = normalized
 
+    items = [
+        item
+        for item in existing.values()
+        if item.get("id") is not None and item.get("date")
+    ]
+    if allowed_types:
+        items = [item for item in items if item.get("type") in allowed_types]
     items.sort(key=lambda x: (x["date"], x["id"]))
     return items
 
