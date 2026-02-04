@@ -12,7 +12,7 @@ Create a Strava API application at [Strava API Settings](https://www.strava.com/
 
 ## Quick start (GitHub Actions only)
 
-No local clone is required for this setup; you can run everything from GitHub Actions. Clone locally only if you want to customize or run the scripts yourself.
+Forking the repo is enough for this setup; no local clone is required. You can run everything from GitHub Actions. Clone locally only if you want to customize or run the scripts yourself.
 
 1. Generate a **refresh token** via OAuth (the token shown on the Strava API page often does **not** work):
 
