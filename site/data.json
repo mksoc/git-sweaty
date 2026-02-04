@@ -11260,15 +11260,15 @@
       }
     }
   },
-  "generated_at": "2026-02-04T15:58:38.573881+00:00",
+  "generated_at": "2026-02-04T16:08:12.172914+00:00",
   "types": [
     "Run",
     "Ride",
     "WeightTraining"
   ],
   "units": {
-    "distance": "mi",
-    "elevation": "ft"
+    "distance": "km",
+    "elevation": "m"
   },
   "years": [
     2019,
