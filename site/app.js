@@ -1,8 +1,8 @@
-const DEFAULT_COLORS = ["#f3f5f8", "#f3f5f8", "#f3f5f8", "#f3f5f8", "#f3f5f8"];
+const DEFAULT_COLORS = ["#1f2937", "#1f2937", "#1f2937", "#1f2937", "#1f2937"];
 const TYPE_COLORS = {
-  Run: ["#f3f5f8", "#f3f5f8", "#f3f5f8", "#f3f5f8", "#01cdfe"],
-  Ride: ["#f3f5f8", "#f3f5f8", "#f3f5f8", "#f3f5f8", "#05ffa1"],
-  WeightTraining: ["#f3f5f8", "#f3f5f8", "#f3f5f8", "#f3f5f8", "#ff71ce"],
+  Run: ["#1f2937", "#1f2937", "#1f2937", "#1f2937", "#01cdfe"],
+  Ride: ["#1f2937", "#1f2937", "#1f2937", "#1f2937", "#05ffa1"],
+  WeightTraining: ["#1f2937", "#1f2937", "#1f2937", "#1f2937", "#ff71ce"],
 };
 const MULTI_TYPE_COLOR = "#b967ff";
 
