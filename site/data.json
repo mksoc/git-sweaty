@@ -11414,6 +11414,15 @@
           "distance": 72865.7,
           "elevation_gain": 365.0,
           "moving_time": 11114.0
+        },
+        "2026-08-04": {
+          "activity_ids": [
+            19592264701
+          ],
+          "count": 1,
+          "distance": 27191.2,
+          "elevation_gain": 133.0,
+          "moving_time": 3823.0
         }
       },
       "Run": {
@@ -11907,17 +11916,18 @@
         },
         "2026-08-03": {
           "activity_ids": [
-            19578272272
+            19578272272,
+            19587860458
           ],
-          "count": 1,
+          "count": 2,
           "distance": 0.0,
           "elevation_gain": 0.0,
-          "moving_time": 2611.0
+          "moving_time": 4561.0
         }
       }
     }
   },
-  "generated_at": "2026-08-03T09:49:18.725857+00:00",
+  "generated_at": "2026-08-04T08:39:37.752123+00:00",
   "types": [
     "Run",
     "Ride",
