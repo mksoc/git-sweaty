@@ -11553,6 +11553,15 @@
           "distance": 20349.4,
           "elevation_gain": 68.8,
           "moving_time": 3198.0
+        },
+        "2026-10-14": {
+          "activity_ids": [
+            20584015837
+          ],
+          "count": 1,
+          "distance": 17924.1,
+          "elevation_gain": 53.8,
+          "moving_time": 4688.0
         }
       },
       "Run": {
@@ -12183,7 +12192,7 @@
       }
     }
   },
-  "generated_at": "2026-10-14T11:24:16.002296+00:00",
+  "generated_at": "2026-10-15T11:00:55.996589+00:00",
   "types": [
     "Run",
     "Ride",
