@@ -12242,11 +12242,20 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 3325.0
+        },
+        "2026-10-27": {
+          "activity_ids": [
+            20754761706
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 3243.0
         }
       }
     }
   },
-  "generated_at": "2026-10-27T11:45:55.142154+00:00",
+  "generated_at": "2026-10-28T12:19:39.758773+00:00",
   "types": [
     "Run",
     "Ride",
