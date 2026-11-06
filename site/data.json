@@ -12279,11 +12279,20 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 3256.0
+        },
+        "2026-11-05": {
+          "activity_ids": [
+            20873203604
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 3238.0
         }
       }
     }
   },
-  "generated_at": "2026-11-05T14:12:53.947133+00:00",
+  "generated_at": "2026-11-06T13:53:58.735909+00:00",
   "types": [
     "Run",
     "Ride",
